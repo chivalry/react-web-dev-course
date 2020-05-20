@@ -44,9 +44,6 @@ function getLocation(location) {
         );
     }
 }
-var userName = 'Mike';
-var userAge = 12;
-var userLocation = 'CA';
 var templateTwo = React.createElement(
     'div',
     null,
