@@ -23,6 +23,12 @@ var removeAll = function removeAll() {
     render();
 };
 
+var makeDecision = function makeDecision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNum];
+    alert(option);
+};
+
 var numbers = [55, 101, 100];
 
 var render = function render() {
@@ -48,6 +54,11 @@ var render = function render() {
             'p',
             null,
             app.options.length
+        ),
+        React.createElement(
+            'button',
+            { disabled: app.options.length === 0, onClick: makeDecision },
+            'What should I do?'
         ),
         React.createElement(
             'button',
