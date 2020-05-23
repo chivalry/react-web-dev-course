@@ -8,6 +8,18 @@ class Counter extends React.Component {
             count: props.count
         };
     }
+    componentDidMount() {
+        const stringCount = localStorage.getItem('count');
+        const count = parseInt(stringCount);
+        if (!isNaN(count)) {
+            this.setState(() => ({count}));
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.com) {
+            localStorage.setState('count', this.state.count);
+        }
+    }
     handleAddOne() {
         this.setState((prevState) => {
             return {
@@ -46,37 +58,3 @@ Counter.defaultProps = {
 }
 
 ReactDOM.render(<Counter />, document.getElementById('app'))
-
-// const appRoot = document.getElementById('app');
-// let count = 0;
-
-// const addOne = () => {
-//     count++;
-//     renderCounterApp();
-// }
-
-// const minusOne = () => {
-//     count--;
-//     renderCounterApp();
-// }
-
-// const reset = () => {
-//     count = 0;
-//     renderCounterApp();
-// }
-
-// const someId = 'myidehere';
-
-// const renderCounterApp = () => {
-//     const templateTwo = (
-//         <div>
-//             <h1>Count: {count}</h1>
-//             <button onClick={addOne}>+1</button>
-//             <button onClick={minusOne}>-1</button>
-//             <button onClick={reset}>reset</button>
-//         </div>
-//     );
-//     ReactDOM.render(templateTwo, appRoot);  
-// }
-
-// renderCounterApp();
