@@ -1,5 +1,5 @@
-import { square, add } from './utils.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log("app.js is running!!")
-console.log(square(4));
-console.log(add(100, 23));
+const template = React.createElement('p', {}, 'testing');
+ReactDOM.render(template, document.getElementById('app'));
