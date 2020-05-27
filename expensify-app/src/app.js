@@ -13,13 +13,13 @@ const store = configureStore();
 store.subscribe(() => {
     console.log(store.getState());
 });
-store.dispatch(addExpense({description: 'Water Bill'}));
+store.dispatch(addExpense({description: 'Water Bill', amount: 4500}));
 store.dispatch(addExpense({description: 'Gas bill'}));
 store.dispatch(setTextFilter('bill'));
 store.dispatch(setTextFilter('water'));
 
 setTimeout(() => {
-    store.dispatch(setTextFilter('rent'));
+    store.dispatch(setTextFilter('bill'));
 }, 2000);
 
 const jsx = (
